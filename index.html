@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mushroom</title>
+</head>
+
+<body ng-app="mushApp">
+    <h2>These are the mushrooms!</h2>
+    <label>
+        <input type="radio" ng-click="showEdible" ng-model="mushroomEdible" value="true"> Non-Poisonous
+        <input type="radio" ng-click="showNotEdible" ng-model="mushroomEdible" value="false"> Poisonous
+        <input type="text" ng-model="MushroomData.mushroom">
+        <ul ng-show="isEdible">
+            <li ng-repeat="mushrooms in mushroomList | filter:search:mushrooms">
+                {{mushrooms.name}}:
+                <br>{{mushrooms.description}}}
+                <br>It is {{mushrooms.edible}}
+            </li>
+        </ul>
+    </label>
+    <label>
+        <ul ng-show="notEdible">
+            <li ng-repeat="mushrooms in mushroomList | filter:search:mushrooms">
+                {{mushrooms.name}}:
+                <br>{{mushrooms.description}}}
+                <br>It is {{mushrooms.edible}} that they are edible!
+            </li>
+        </ul>
+        <pre>search = <span ng-bind="MushroomData.mushroom"></span></pre>
+    </label>
+    </div>
+    </form>
+    <script type="text/javascript" src="/Mushapp/mushroom.js"></script>
+    <script type="text/javascript" src="/lib/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="data/FBgetter.js"></script>
+    <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+    <script src="/Mushapp/mushroom.js"></script>
+</body>
+
+</html>
